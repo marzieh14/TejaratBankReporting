@@ -1,9 +1,9 @@
 
 namespace TejeratBankReporting.Core {
     
-    public class Installment: Entity<int> {
+    public class Installment: Entity<decimal> {
         public Installment() { }
-        public virtual decimal CONTRACTID { get; set; }
+     
         public virtual decimal NO { get; set; }
         public virtual decimal BENEFIT { get; set; }
         public virtual decimal BENEFITPAYDATE { get; set; }
@@ -35,5 +35,26 @@ namespace TejeratBankReporting.Core {
         public virtual decimal TOTALBENEFIT { get; set; }
         public virtual decimal TOTALCOUNT { get; set; }
         public virtual decimal TOTALPAYMENT { get; set; }
+        public override bool Equals(object obj)
+        {
+            var other = obj as Installment;
+
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+
+            return this.Id == other.Id &&
+                this.NO == other.NO;
+        }
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = GetType().GetHashCode();
+                hash = (hash * 31) ^ Id.GetHashCode();
+                hash = (hash * 31) ^ NO.GetHashCode();
+
+                return hash;
+            }
+        }
     }
 }

@@ -2,10 +2,9 @@
 
 namespace TejeratBankReporting.Core {
     
-    public class NACLOG 
+    public class NacLog : Entity<decimal>
     {
-        public NACLOG() { }
-        public virtual decimal ACCNO { get; set; }
+        public NacLog() { }      
         public virtual string ADDRESS { get; set; }
         public virtual string BDATE { get; set; }
         public virtual decimal BPLACECODE { get; set; }

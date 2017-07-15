@@ -9,8 +9,8 @@ namespace TejeratBankReporting.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IInstallmentService _productService;
-        public HomeController(IInstallmentService ff)
+        private readonly INacLogService _productService;
+        public HomeController(INacLogService ff)
         {
             _productService = ff;
         }

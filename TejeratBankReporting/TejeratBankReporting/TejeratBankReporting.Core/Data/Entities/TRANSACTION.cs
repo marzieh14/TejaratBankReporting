@@ -2,10 +2,10 @@
 
 namespace TejeratBankReporting.Core {
     
-    public class TRANSACTION 
+    public class Transaction : Entity<decimal>
     {
-        public TRANSACTION() { }
-        public virtual decimal ID { get; set; }
+        public Transaction() { }
+       
         public virtual decimal ACCNO { get; set; }
         public virtual string ACTIVEDATE { get; set; }
         public virtual decimal AMOUNT { get; set; }

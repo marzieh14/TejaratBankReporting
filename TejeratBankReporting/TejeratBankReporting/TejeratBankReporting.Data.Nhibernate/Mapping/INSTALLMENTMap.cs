@@ -9,9 +9,8 @@ namespace TejeratBankReporting.Data.Nhibernate {
         public INSTALLMENTMap() {
             Table("INSTALLMENTS");
             LazyLoad();
-            Id(x => x.Id).GeneratedBy.Identity().Column("IID");
-            Map(x => x.CONTRACTID).Column("CONTRACTID").Not.Nullable();
-            Map(x => x.NO).Column("NO").Not.Nullable();
+            CompositeId().KeyProperty(x => x.Id, "CONTRACTID").KeyProperty(x => x.NO, "NO");
+  
             Map(x => x.BENEFIT).Column("BENEFIT").Not.Nullable();
             Map(x => x.BENEFITPAYDATE).Column("BENEFITPAYDATE").Not.Nullable();
             Map(x => x.CARDTYPE).Column("CARDTYPE").Not.Nullable();

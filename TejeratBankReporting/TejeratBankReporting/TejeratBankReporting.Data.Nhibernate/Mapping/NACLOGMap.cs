@@ -4,13 +4,12 @@ namespace TejeratBankReporting.Data.Nhibernate {
     using FluentNHibernate.Mapping;
     using TejeratBankReporting.Core;
 
-    public class NACLOGMap : ClassMap<NACLOG> {
+    public class NACLOGMap : ClassMap<NacLog> {
         
         public NACLOGMap() {
 			Table("NACLOG");
 			LazyLoad();
-			CompositeId();
-			Map(x => x.ACCNO).Column("ACCNO").Not.Nullable();
+            Id(x => x.Id).GeneratedBy.Assigned().Column("ACCNO");
 			Map(x => x.ADDRESS).Column("ADDRESS").Not.Nullable().Length(200);
 			Map(x => x.BDATE).Column("BDATE").Not.Nullable().Length(6);
 			Map(x => x.BPLACECODE).Column("BPLACECODE").Not.Nullable();

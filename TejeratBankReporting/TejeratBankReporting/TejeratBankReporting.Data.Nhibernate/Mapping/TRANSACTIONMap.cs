@@ -4,12 +4,12 @@ namespace TejeratBankReporting.Data.Nhibernate {
 
     using FluentNHibernate.Mapping;
     using TejeratBankReporting.Core;
-    public class TRANSACTIONMap : ClassMap<TRANSACTION> {
+    public class TRANSACTIONMap : ClassMap<Transaction> {
         
         public TRANSACTIONMap() {
 			Table("TRANSACTIONS");
 			LazyLoad();
-			Id(x => x.ID).GeneratedBy.Assigned().Column("ID");
+			Id(x => x.Id).GeneratedBy.Assigned().Column("ID");
 			Map(x => x.ACCNO).Column("ACCNO").Not.Nullable();
 			Map(x => x.ACTIVEDATE).Column("ACTIVEDATE").Not.Nullable().Length(6);
 			Map(x => x.AMOUNT).Column("AMOUNT").Not.Nullable();

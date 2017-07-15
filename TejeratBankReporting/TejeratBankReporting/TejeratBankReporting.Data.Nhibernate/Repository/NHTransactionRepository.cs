@@ -7,7 +7,7 @@ namespace LeatherMarket.Data.Nhibernate
     using System.Linq;
     using TejeratBankReporting.Core;
     using TejeratBankReporting.Data.Nhibernate;
-    public class NHInstallmentRepository : NhRepositoryBase<Installment, decimal>, IInstallmentRepository
+    public class NHTransactionRepository : NhRepositoryBase<Transaction, decimal>, ITransactionRepository
     {
         public void Delete(decimal id)
         {
@@ -19,10 +19,10 @@ namespace LeatherMarket.Data.Nhibernate
             throw new NotImplementedException();
         }
 
-        public List<Installment> List()
+        public List<Transaction> List()
         {
            // var hh1 = Db<Statement>().ToList();
-            var hh= Db<Installment>().ToList();
+            var hh= Db<Transaction>().ToList();
             return hh;
         }
     }

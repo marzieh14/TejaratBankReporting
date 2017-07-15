@@ -4,12 +4,12 @@ namespace TejeratBankReporting.Data.Nhibernate {
     using FluentNHibernate.Mapping;
     using TejeratBankReporting.Core;
 
-    public class NACMap : ClassMap<NAC> {
+    public class NACMap : ClassMap<Nac> {
         
         public NACMap() {
 			Table("NAC");
 			LazyLoad();
-			CompositeId().KeyProperty(x => x.CARDTYPE, "CARDTYPE").KeyProperty(x => x.MELICODE, "MELICODE");
+			CompositeId().KeyProperty(x => x.Id, "CARDTYPE").KeyProperty(x => x.MELICODE, "MELICODE");
 			Map(x => x.ACCDATE).Column("ACCDATE").Not.Nullable();
 			Map(x => x.ACCNO).Column("ACCNO").Not.Nullable();
 			Map(x => x.ACTIVESTATUS).Column("ACTIVESTATUS").Not.Nullable();

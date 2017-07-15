@@ -2,10 +2,9 @@
 
 namespace TejeratBankReporting.Core {
     
-    public class NAC 
+    public class Nac : Entity<decimal>
     {
-        public NAC() { }
-        public virtual decimal CARDTYPE { get; set; }
+        public Nac() { }
         public virtual string MELICODE { get; set; }
         public virtual decimal ACCDATE { get; set; }
         public virtual decimal ACCNO { get; set; }
@@ -48,5 +47,27 @@ namespace TejeratBankReporting.Core {
         public virtual System.Nullable<decimal> UNUSED_PAY_STATUS { get; set; }
         public virtual System.Nullable<decimal> UNUSED_PAYDATE { get; set; }
         public virtual System.Nullable<decimal> UNUSEDFEE { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as Nac;
+
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+
+            return this.Id == other.Id &&
+                this.MELICODE == other.MELICODE;
+        }
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = GetType().GetHashCode();
+                hash = (hash * 31) ^ Id.GetHashCode();
+                hash = (hash * 31) ^ MELICODE.GetHashCode();
+
+                return hash;
+            }
+        }
     }
 }
